@@ -1,0 +1,255 @@
+wandb: Currently logged in as: gundameedisairammohan (dlproject_mavs). Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.16.0
+wandb: Run data is saved locally in /workspace/ckarfa/Chandrabhushan/SRM/TransZero_pp/wandb/run-20231108_114008-8pu21shf
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dazzling-terrain-7
+wandb: ⭐️ View project at https://wandb.ai/dlproject_mavs/TransZeroPP
+wandb: 🚀 View run at https://wandb.ai/dlproject_mavs/TransZeroPP/runs/8pu21shf
+Config file from wandb: {'dataset': 'CUB', 'num_class': 200, 'num_attribute': 312, 'img_size': 448, 'resnet_region': 196, 'dim_f': 2048, 'dim_v': 300, 'device': 'cuda:0', 'batch_size': 10, 'epochs': 50, 'use_unzip': True, 'random_seed': 4590, 'normalize_V': False, 'tf_SAtt': True, 'tf_ec_layer': 1, 'tf_dc_layer': 1, 'tf_heads': 1, 'tf_common_dim': 300, 'tf_aux_embed': True, 'tf_dim_feedforward': 512, 'tf_dropout': 0.4, 'tf_v2s_init': 'zeros_', 'weight_s2v': 0.9, 'lambda_': 0.2, 'lambda_reg': 0.0001, 'lambda_v2s': 0.1, 'lambda_cst_reg_att': 0.001, 'lambda_cst_reg_cls': 0.01}
+.
+_____
+./data/CUB/feature_map_ResNet_101_CUB.hdf5
+Expert Attr
+------------------------------
+iter/epoch=0/0 | loss=39.013, loss_CE=39.434, loss_cal=0.636, loss_reg=202.153, loss_cst_att=202.115, loss_cst_cls=405.900 | 
+Current GZSL: acc_unseen=0.000, acc_seen=0.007, H=0.000 | Current CZSL: acc_zs=0.020
+BEST GZSL: acc_unseen=0.000, acc_seen=0.000, H=0.000, acc_zs=0.000 | BEST CZSL: acc_zs=0.020
+------------------------------
+iter/epoch=705/1 | loss=5.658, loss_CE=10.030, loss_cal=0.895, loss_reg=37.433, loss_cst_att=37.453, loss_cst_cls=31.636 | 
+Current GZSL: acc_unseen=0.276, acc_seen=0.139, H=0.185 | Current CZSL: acc_zs=0.344
+BEST GZSL: acc_unseen=0.276, acc_seen=0.139, H=0.185, acc_zs=0.344 | BEST CZSL: acc_zs=0.344
+------------------------------
+iter/epoch=1410/2 | loss=3.168, loss_CE=7.113, loss_cal=0.958, loss_reg=41.929, loss_cst_att=40.852, loss_cst_cls=27.139 | 
+Current GZSL: acc_unseen=0.376, acc_seen=0.278, H=0.320 | Current CZSL: acc_zs=0.444
+BEST GZSL: acc_unseen=0.376, acc_seen=0.278, H=0.320, acc_zs=0.444 | BEST CZSL: acc_zs=0.444
+------------------------------
+iter/epoch=2115/3 | loss=3.547, loss_CE=7.271, loss_cal=1.048, loss_reg=38.402, loss_cst_att=37.405, loss_cst_cls=27.048 | 
+Current GZSL: acc_unseen=0.366, acc_seen=0.408, H=0.386 | Current CZSL: acc_zs=0.493
+BEST GZSL: acc_unseen=0.366, acc_seen=0.408, H=0.386, acc_zs=0.493 | BEST CZSL: acc_zs=0.493
+------------------------------
+iter/epoch=2820/4 | loss=4.092, loss_CE=7.394, loss_cal=0.891, loss_reg=38.903, loss_cst_att=36.282, loss_cst_cls=39.437 | 
+Current GZSL: acc_unseen=0.464, acc_seen=0.450, H=0.457 | Current CZSL: acc_zs=0.564
+BEST GZSL: acc_unseen=0.464, acc_seen=0.450, H=0.457, acc_zs=0.564 | BEST CZSL: acc_zs=0.564
+------------------------------
+iter/epoch=3525/5 | loss=2.659, loss_CE=5.371, loss_cal=1.640, loss_reg=37.391, loss_cst_att=33.115, loss_cst_cls=37.916 | 
+Current GZSL: acc_unseen=0.428, acc_seen=0.513, H=0.467 | Current CZSL: acc_zs=0.577
+BEST GZSL: acc_unseen=0.428, acc_seen=0.513, H=0.467, acc_zs=0.577 | BEST CZSL: acc_zs=0.577
+------------------------------
+iter/epoch=4230/6 | loss=2.851, loss_CE=5.649, loss_cal=1.493, loss_reg=39.439, loss_cst_att=32.451, loss_cst_cls=26.140 | 
+Current GZSL: acc_unseen=0.524, acc_seen=0.535, H=0.529 | Current CZSL: acc_zs=0.654
+BEST GZSL: acc_unseen=0.524, acc_seen=0.535, H=0.529, acc_zs=0.654 | BEST CZSL: acc_zs=0.654
+------------------------------
+iter/epoch=4935/7 | loss=2.907, loss_CE=5.438, loss_cal=1.383, loss_reg=40.978, loss_cst_att=30.467, loss_cst_cls=35.288 | 
+Current GZSL: acc_unseen=0.536, acc_seen=0.563, H=0.549 | Current CZSL: acc_zs=0.646
+BEST GZSL: acc_unseen=0.536, acc_seen=0.563, H=0.549, acc_zs=0.646 | BEST CZSL: acc_zs=0.654
+------------------------------
+iter/epoch=5640/8 | loss=1.988, loss_CE=3.429, loss_cal=1.730, loss_reg=43.068, loss_cst_att=25.897, loss_cst_cls=20.453 | 
+Current GZSL: acc_unseen=0.565, acc_seen=0.607, H=0.585 | Current CZSL: acc_zs=0.694
+BEST GZSL: acc_unseen=0.565, acc_seen=0.607, H=0.585, acc_zs=0.694 | BEST CZSL: acc_zs=0.694
+------------------------------
+iter/epoch=6345/9 | loss=1.931, loss_CE=3.003, loss_cal=1.590, loss_reg=48.689, loss_cst_att=27.718, loss_cst_cls=21.385 | 
+Current GZSL: acc_unseen=0.553, acc_seen=0.644, H=0.595 | Current CZSL: acc_zs=0.713
+BEST GZSL: acc_unseen=0.553, acc_seen=0.644, H=0.595, acc_zs=0.713 | BEST CZSL: acc_zs=0.713
+------------------------------
+iter/epoch=7050/10 | loss=1.472, loss_CE=2.402, loss_cal=1.566, loss_reg=50.055, loss_cst_att=24.141, loss_cst_cls=18.036 | 
+Current GZSL: acc_unseen=0.601, acc_seen=0.654, H=0.626 | Current CZSL: acc_zs=0.740
+BEST GZSL: acc_unseen=0.601, acc_seen=0.654, H=0.626, acc_zs=0.740 | BEST CZSL: acc_zs=0.740
+------------------------------
+iter/epoch=7755/11 | loss=1.482, loss_CE=2.523, loss_cal=2.416, loss_reg=47.850, loss_cst_att=23.210, loss_cst_cls=10.879 | 
+Current GZSL: acc_unseen=0.600, acc_seen=0.646, H=0.622 | Current CZSL: acc_zs=0.717
+BEST GZSL: acc_unseen=0.601, acc_seen=0.654, H=0.626, acc_zs=0.740 | BEST CZSL: acc_zs=0.740
+------------------------------
+iter/epoch=8460/12 | loss=1.584, loss_CE=2.673, loss_cal=1.515, loss_reg=50.507, loss_cst_att=21.074, loss_cst_cls=10.993 | 
+Current GZSL: acc_unseen=0.573, acc_seen=0.653, H=0.610 | Current CZSL: acc_zs=0.702
+BEST GZSL: acc_unseen=0.601, acc_seen=0.654, H=0.626, acc_zs=0.740 | BEST CZSL: acc_zs=0.740
+------------------------------
+iter/epoch=9165/13 | loss=1.041, loss_CE=1.234, loss_cal=2.660, loss_reg=51.983, loss_cst_att=20.575, loss_cst_cls=13.327 | 
+Current GZSL: acc_unseen=0.611, acc_seen=0.673, H=0.641 | Current CZSL: acc_zs=0.736
+BEST GZSL: acc_unseen=0.611, acc_seen=0.673, H=0.641, acc_zs=0.736 | BEST CZSL: acc_zs=0.740
+------------------------------
+iter/epoch=9870/14 | loss=2.243, loss_CE=2.747, loss_cal=2.225, loss_reg=49.422, loss_cst_att=20.821, loss_cst_cls=46.412 | 
+Current GZSL: acc_unseen=0.656, acc_seen=0.677, H=0.666 | Current CZSL: acc_zs=0.751
+BEST GZSL: acc_unseen=0.656, acc_seen=0.677, H=0.666, acc_zs=0.751 | BEST CZSL: acc_zs=0.751
+------------------------------
+iter/epoch=10575/15 | loss=1.160, loss_CE=1.824, loss_cal=2.548, loss_reg=55.676, loss_cst_att=22.301, loss_cst_cls=12.557 | 
+Current GZSL: acc_unseen=0.606, acc_seen=0.703, H=0.651 | Current CZSL: acc_zs=0.735
+BEST GZSL: acc_unseen=0.656, acc_seen=0.677, H=0.666, acc_zs=0.751 | BEST CZSL: acc_zs=0.751
+------------------------------
+iter/epoch=11280/16 | loss=1.548, loss_CE=2.241, loss_cal=2.452, loss_reg=53.167, loss_cst_att=20.860, loss_cst_cls=16.959 | 
+Current GZSL: acc_unseen=0.624, acc_seen=0.659, H=0.641 | Current CZSL: acc_zs=0.721
+BEST GZSL: acc_unseen=0.656, acc_seen=0.677, H=0.666, acc_zs=0.751 | BEST CZSL: acc_zs=0.751
+------------------------------
+iter/epoch=11985/17 | loss=1.433, loss_CE=2.347, loss_cal=2.305, loss_reg=53.049, loss_cst_att=19.222, loss_cst_cls=15.164 | 
+Current GZSL: acc_unseen=0.579, acc_seen=0.675, H=0.624 | Current CZSL: acc_zs=0.709
+BEST GZSL: acc_unseen=0.656, acc_seen=0.677, H=0.666, acc_zs=0.751 | BEST CZSL: acc_zs=0.751
+------------------------------
+iter/epoch=12690/18 | loss=1.821, loss_CE=2.589, loss_cal=1.855, loss_reg=45.097, loss_cst_att=17.858, loss_cst_cls=33.696 | 
+Current GZSL: acc_unseen=0.659, acc_seen=0.679, H=0.669 | Current CZSL: acc_zs=0.747
+BEST GZSL: acc_unseen=0.659, acc_seen=0.679, H=0.669, acc_zs=0.747 | BEST CZSL: acc_zs=0.751
+------------------------------
+iter/epoch=13395/19 | loss=0.897, loss_CE=0.984, loss_cal=2.692, loss_reg=55.757, loss_cst_att=18.194, loss_cst_cls=12.673 | 
+Current GZSL: acc_unseen=0.654, acc_seen=0.665, H=0.659 | Current CZSL: acc_zs=0.744
+BEST GZSL: acc_unseen=0.659, acc_seen=0.679, H=0.669, acc_zs=0.747 | BEST CZSL: acc_zs=0.751
+------------------------------
+iter/epoch=14100/20 | loss=1.252, loss_CE=1.834, loss_cal=1.607, loss_reg=53.853, loss_cst_att=18.755, loss_cst_cls=21.172 | 
+Current GZSL: acc_unseen=0.609, acc_seen=0.706, H=0.654 | Current CZSL: acc_zs=0.730
+BEST GZSL: acc_unseen=0.659, acc_seen=0.679, H=0.669, acc_zs=0.747 | BEST CZSL: acc_zs=0.751
+------------------------------
+iter/epoch=14805/21 | loss=1.131, loss_CE=1.165, loss_cal=2.298, loss_reg=59.823, loss_cst_att=17.043, loss_cst_cls=13.344 | 
+Current GZSL: acc_unseen=0.668, acc_seen=0.696, H=0.682 | Current CZSL: acc_zs=0.770
+BEST GZSL: acc_unseen=0.668, acc_seen=0.696, H=0.682, acc_zs=0.770 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=15510/22 | loss=1.070, loss_CE=1.773, loss_cal=1.086, loss_reg=50.828, loss_cst_att=17.831, loss_cst_cls=12.332 | 
+Current GZSL: acc_unseen=0.640, acc_seen=0.678, H=0.658 | Current CZSL: acc_zs=0.738
+BEST GZSL: acc_unseen=0.668, acc_seen=0.696, H=0.682, acc_zs=0.770 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=16215/23 | loss=1.268, loss_CE=1.867, loss_cal=2.397, loss_reg=46.320, loss_cst_att=14.364, loss_cst_cls=13.603 | 
+Current GZSL: acc_unseen=0.664, acc_seen=0.690, H=0.677 | Current CZSL: acc_zs=0.755
+BEST GZSL: acc_unseen=0.668, acc_seen=0.696, H=0.682, acc_zs=0.770 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=16920/24 | loss=1.191, loss_CE=2.005, loss_cal=2.784, loss_reg=54.481, loss_cst_att=17.199, loss_cst_cls=9.931 | 
+Current GZSL: acc_unseen=0.608, acc_seen=0.709, H=0.655 | Current CZSL: acc_zs=0.737
+BEST GZSL: acc_unseen=0.668, acc_seen=0.696, H=0.682, acc_zs=0.770 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=17625/25 | loss=0.759, loss_CE=0.841, loss_cal=2.303, loss_reg=51.263, loss_cst_att=13.580, loss_cst_cls=8.360 | 
+Current GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686 | Current CZSL: acc_zs=0.758
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.758 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=18330/26 | loss=0.802, loss_CE=0.880, loss_cal=2.294, loss_reg=47.202, loss_cst_att=15.539, loss_cst_cls=14.945 | 
+Current GZSL: acc_unseen=0.678, acc_seen=0.670, H=0.674 | Current CZSL: acc_zs=0.753
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.758 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=19035/27 | loss=1.292, loss_CE=1.615, loss_cal=2.192, loss_reg=54.357, loss_cst_att=14.048, loss_cst_cls=12.491 | 
+Current GZSL: acc_unseen=0.630, acc_seen=0.702, H=0.664 | Current CZSL: acc_zs=0.745
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.758 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=19740/28 | loss=0.907, loss_CE=1.082, loss_cal=2.151, loss_reg=62.682, loss_cst_att=15.728, loss_cst_cls=13.026 | 
+Current GZSL: acc_unseen=0.650, acc_seen=0.696, H=0.672 | Current CZSL: acc_zs=0.749
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.758 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=20445/29 | loss=0.936, loss_CE=1.537, loss_cal=1.907, loss_reg=59.533, loss_cst_att=14.541, loss_cst_cls=10.426 | 
+Current GZSL: acc_unseen=0.658, acc_seen=0.680, H=0.669 | Current CZSL: acc_zs=0.746
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.758 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=21150/30 | loss=0.921, loss_CE=1.403, loss_cal=1.752, loss_reg=66.462, loss_cst_att=15.204, loss_cst_cls=9.253 | 
+Current GZSL: acc_unseen=0.660, acc_seen=0.708, H=0.683 | Current CZSL: acc_zs=0.757
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.758 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=21855/31 | loss=0.793, loss_CE=0.847, loss_cal=2.305, loss_reg=61.809, loss_cst_att=14.331, loss_cst_cls=9.820 | 
+Current GZSL: acc_unseen=0.644, acc_seen=0.703, H=0.673 | Current CZSL: acc_zs=0.747
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.758 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=22560/32 | loss=0.911, loss_CE=1.057, loss_cal=2.210, loss_reg=60.435, loss_cst_att=13.447, loss_cst_cls=9.211 | 
+Current GZSL: acc_unseen=0.661, acc_seen=0.710, H=0.685 | Current CZSL: acc_zs=0.749
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.758 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=23265/33 | loss=1.212, loss_CE=1.217, loss_cal=2.033, loss_reg=59.290, loss_cst_att=15.508, loss_cst_cls=17.632 | 
+Current GZSL: acc_unseen=0.631, acc_seen=0.686, H=0.658 | Current CZSL: acc_zs=0.732
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.758 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=23970/34 | loss=0.829, loss_CE=0.604, loss_cal=3.444, loss_reg=55.033, loss_cst_att=15.010, loss_cst_cls=11.939 | 
+Current GZSL: acc_unseen=0.669, acc_seen=0.697, H=0.683 | Current CZSL: acc_zs=0.759
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.758 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=24675/35 | loss=1.000, loss_CE=1.217, loss_cal=1.778, loss_reg=66.236, loss_cst_att=13.357, loss_cst_cls=11.594 | 
+Current GZSL: acc_unseen=0.640, acc_seen=0.709, H=0.673 | Current CZSL: acc_zs=0.744
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.758 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=25380/36 | loss=0.806, loss_CE=1.083, loss_cal=1.587, loss_reg=58.823, loss_cst_att=14.032, loss_cst_cls=10.916 | 
+Current GZSL: acc_unseen=0.647, acc_seen=0.689, H=0.667 | Current CZSL: acc_zs=0.735
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.758 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=26085/37 | loss=0.730, loss_CE=0.895, loss_cal=2.017, loss_reg=67.678, loss_cst_att=14.812, loss_cst_cls=7.565 | 
+Current GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686 | Current CZSL: acc_zs=0.761
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.761 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=26790/38 | loss=0.612, loss_CE=0.575, loss_cal=2.235, loss_reg=57.157, loss_cst_att=12.210, loss_cst_cls=10.492 | 
+Current GZSL: acc_unseen=0.606, acc_seen=0.707, H=0.653 | Current CZSL: acc_zs=0.729
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.761 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=27495/39 | loss=0.919, loss_CE=1.263, loss_cal=1.556, loss_reg=57.405, loss_cst_att=13.927, loss_cst_cls=11.558 | 
+Current GZSL: acc_unseen=0.660, acc_seen=0.703, H=0.681 | Current CZSL: acc_zs=0.754
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.761 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=28200/40 | loss=0.578, loss_CE=0.488, loss_cal=2.615, loss_reg=68.138, loss_cst_att=13.766, loss_cst_cls=7.014 | 
+Current GZSL: acc_unseen=0.649, acc_seen=0.716, H=0.681 | Current CZSL: acc_zs=0.744
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.761 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=28905/41 | loss=0.636, loss_CE=0.508, loss_cal=2.294, loss_reg=59.251, loss_cst_att=13.460, loss_cst_cls=9.575 | 
+Current GZSL: acc_unseen=0.647, acc_seen=0.705, H=0.675 | Current CZSL: acc_zs=0.743
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.761 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=29610/42 | loss=0.680, loss_CE=0.976, loss_cal=1.668, loss_reg=67.671, loss_cst_att=13.968, loss_cst_cls=12.207 | 
+Current GZSL: acc_unseen=0.635, acc_seen=0.690, H=0.661 | Current CZSL: acc_zs=0.729
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.761 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=30315/43 | loss=0.774, loss_CE=1.017, loss_cal=2.305, loss_reg=62.568, loss_cst_att=11.878, loss_cst_cls=7.575 | 
+Current GZSL: acc_unseen=0.648, acc_seen=0.696, H=0.671 | Current CZSL: acc_zs=0.739
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.761 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=31020/44 | loss=0.585, loss_CE=0.653, loss_cal=1.920, loss_reg=58.113, loss_cst_att=13.415, loss_cst_cls=7.599 | 
+Current GZSL: acc_unseen=0.641, acc_seen=0.690, H=0.665 | Current CZSL: acc_zs=0.732
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.761 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=31725/45 | loss=0.740, loss_CE=1.038, loss_cal=1.597, loss_reg=53.497, loss_cst_att=11.733, loss_cst_cls=6.770 | 
+Current GZSL: acc_unseen=0.646, acc_seen=0.709, H=0.676 | Current CZSL: acc_zs=0.743
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.761 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=32430/46 | loss=0.997, loss_CE=1.132, loss_cal=2.746, loss_reg=64.565, loss_cst_att=13.955, loss_cst_cls=6.481 | 
+Current GZSL: acc_unseen=0.656, acc_seen=0.701, H=0.678 | Current CZSL: acc_zs=0.748
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.761 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=33135/47 | loss=0.600, loss_CE=0.761, loss_cal=1.859, loss_reg=63.468, loss_cst_att=13.808, loss_cst_cls=6.894 | 
+Current GZSL: acc_unseen=0.653, acc_seen=0.682, H=0.667 | Current CZSL: acc_zs=0.744
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.761 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=33840/48 | loss=0.626, loss_CE=0.623, loss_cal=2.424, loss_reg=65.342, loss_cst_att=12.854, loss_cst_cls=7.869 | 
+Current GZSL: acc_unseen=0.638, acc_seen=0.685, H=0.661 | Current CZSL: acc_zs=0.729
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.761 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=34545/49 | loss=0.726, loss_CE=0.623, loss_cal=2.291, loss_reg=66.542, loss_cst_att=13.297, loss_cst_cls=8.697 | 
+Current GZSL: acc_unseen=0.653, acc_seen=0.718, H=0.684 | Current CZSL: acc_zs=0.745
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.761 | BEST CZSL: acc_zs=0.770
+------------------------------
+iter/epoch=35250/50 | loss=0.609, loss_CE=0.527, loss_cal=2.417, loss_reg=74.643, loss_cst_att=12.351, loss_cst_cls=9.404 | 
+Current GZSL: acc_unseen=0.652, acc_seen=0.678, H=0.665 | Current CZSL: acc_zs=0.741
+BEST GZSL: acc_unseen=0.663, acc_seen=0.711, H=0.686, acc_zs=0.761 | BEST CZSL: acc_zs=0.770
+wandb: - 0.004 MB of 0.004 MB uploadedwandb: \ 0.004 MB of 0.004 MB uploadedwandb: | 0.004 MB of 0.004 MB uploadedwandb: / 0.004 MB of 0.004 MB uploadedwandb: - 0.004 MB of 0.004 MB uploadedwandb: \ 0.004 MB of 0.004 MB uploadedwandb: | 0.004 MB of 0.004 MB uploadedwandb: / 0.004 MB of 0.004 MB uploadedwandb: - 0.004 MB of 0.004 MB uploadedwandb: \ 0.004 MB of 0.004 MB uploadedwandb: 
+wandb: Run history:
+wandb:               H ▁▃▄▅▆▆▇▇▇▇▇███▇█████████████████████████
+wandb:        acc_seen ▁▂▄▅▆▆▇▇▇▇▇██▇██████████████████████████
+wandb:      acc_unseen ▁▄▅▅▅▆▇▇▇▇▇█▇▇▇█▇██▇██████████▇█████████
+wandb:          acc_zs ▁▄▅▅▆▇▇▇██▇███▇█████████████████████████
+wandb:          best_H ▁▃▄▅▆▆▇▇▇▇▇█████████████████████████████
+wandb:   best_acc_seen ▁▂▄▅▆▆▇▇▇▇▇█████████████████████████████
+wandb: best_acc_unseen ▁▄▅▅▅▆▇▇▇▇▇█████████████████████████████
+wandb:     best_acc_zs ▁▄▅▅▆▇▇▇████████████████████████████████
+wandb:            iter ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇███
+wandb:            loss █▂▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         loss_CE █▃▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:        loss_att █▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:        loss_cal ▁▂▂▂▄▃▃▄▃▅▃▅▆▆▅▆▃▅▅▆▅▅▅▄▄▅▄█▄▄▅▃▅▄▅▄▆▄▅▅
+wandb:        loss_cls █▁▁▁▂▁▂▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:        loss_reg █▁▁▁▁▁▁▁▂▁▂▂▂▂▂▂▂▂▁▂▂▁▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▃
+wandb: 
+wandb: Run summary:
+wandb:               H 0.66468
+wandb:        acc_seen 0.67816
+wandb:      acc_unseen 0.65173
+wandb:          acc_zs 0.74123
+wandb:          best_H 0.68647
+wandb:   best_acc_seen 0.71119
+wandb: best_acc_unseen 0.66341
+wandb:     best_acc_zs 0.76977
+wandb:            iter 35250
+wandb:            loss 0.60876
+wandb:         loss_CE 0.52659
+wandb:        loss_att 12.3508
+wandb:        loss_cal 2.41721
+wandb:        loss_cls 9.4043
+wandb:        loss_reg 74.64296
+wandb: 
+wandb: 🚀 View run dazzling-terrain-7 at: https://wandb.ai/dlproject_mavs/TransZeroPP/runs/8pu21shf
+wandb: ️⚡ View job at https://wandb.ai/dlproject_mavs/TransZeroPP/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjExMzYzNDY2MQ==/version_details/v1
+wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231108_114008-8pu21shf/logs

@@ -1,0 +1,124 @@
+\documentclass[11]{article}
+\usepackage{fullpage}
+\usepackage[fleqn]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[pdftex]{graphicx,color}
+
+
+\begin{document}
+
+\def\RR{\mathbb{R}}
+\def\off{\mbox{{\it off}}}
+\def\dif{\mbox{{\it dif}}}
+
+\section*{Principles of Cyber-Physical Systems\\
+Project: Modeling of Multiple Heaters}
+
+
+In this project, we will model a room heating system.  Consider a
+house with 4 rooms that are heated by 2 heaters.  The temperature in
+each room is controlled by a heater, if there is one in it, and also
+depends on the temperature of the adjacent rooms and the outside
+temperature.  Each room can have at most one heater.  Clearly, at any
+given time, only two of the rooms have a heater.
+
+Let $x_i$ be the temperature in room $i$ ($i=1,2,3,4$), $u$ the
+outside temperature.  The temperature of a room changes
+linearly with the difference of the temperature with the other rooms,
+the difference with the outside temperature, and the power of the
+heater if there is one in it.  Specifically, the dynamics of the
+system is given by
+\[ \dot{x}_i = c_i h_i + b_i(u - x_i) + \sum_{j \neq i} a_{i,j} (x_j -
+x_i) \] %
+with constants $a_{i,j}$, $b_i$, $c_i$.  In this equation, $h_i \in
+\{0,1\}$ is the power status of the heater in the room: $h_i$ is $0$
+if there is no heater or the heater is off, $h_i = 1$ if there is a
+heater and it is on.  We assume that all the heaters are identical.
+If $a_{i,j} > 0$ then rooms $i$ and $j$ are adjacent.
+
+
+\begin{enumerate}
+\item Design a Simulink model (in a subsystem block) of the above room
+  heating system.  Describe briefly your design in the report.  The
+  system should have $h_i$ and $u$ as its inputs.  It should be
+  parameterized by the constants $a_{i,j}$ in a matrix $A = [a_{i,j}]
+  \in \RR^{4\times 4}$, the constants $b_i$ in a vector $b = [b_i] \in
+  \RR^4$, the constants $c_i$ in a vector $c = [c_i] \in \RR^4$, and
+  the initial temperature of each room in a vector $x_0 \in \RR^4$.
+\item We will control the heaters by a typical thermostat, i.e.\ the
+  heater is switched on at its maximum power ($h_i = 1$) if the
+  temperature is below a certain threshold, and off ($h_i = 0$) if it
+  is beyond another (higher) threshold.  Specifically, for each room
+  $i$ we define thresholds $on_i$ and $\off_i$, and the heater in room
+  $i$ (if there is one) is on if $x_i \leq on_i$ and off if $x_i \geq
+  \off_i$.\\
+  We will also control the placement of the heaters in the rooms
+  (remember that there are fewer heaters than the rooms) by the
+  following rule: a heater is moved from room $j$ to room $i$ ($i \neq
+  j$) if all the followings hold:
+  \begin{itemize}
+  \item room $i$ has no heater (each room can have at most one heater)
+  \item room $j$ has a heater
+  \item temperature $x_i \leq get_i$
+  \item the difference $x_j - x_i \geq \dif_i$.
+  \end{itemize}
+  The constants $get_i$ and $\dif_i$ may differ for each room.  When a
+  heater can be moved to two different rooms or two heaters can be
+  moved to the same room, you can make any choice you like (for
+  example, always favor the room with higher index, or always favor
+  the room with lower temperature).\\
+  Design this controller in Stateflow (as a subsystem block),
+  parameterized by the constants $on_i$ in a vector $on = [on_i] \in
+  \RR^4$, the constants $\off_i$ in a vector $\off = [\off_i] \in
+  \RR^4$, the constants $get_i$ in a vector $get = [get_i] \in
+  \RR^4$, the constants $\dif_i$ in a vector $\dif = [\dif_i] \in
+  \RR^4$.  The inputs to the controller should be the temperatures
+  $x_i$.  The outputs should be $h_i$ for each room $i$,
+  with the constraints that $h_i \in \{0,1\}$ and at any time, at
+  most two of these outputs can be $1$ (because there are only
+  two heaters).  Describe rigorously and succinctly your design in the
+  report.
+\item Connect the controller model to the rooms' model and simulate
+  your system with the following data.  The system should be simulated
+  for a reasonable amount of time, i.e.\ when interesting events, such
+  as moving of heaters, happen.  Plot the temperature $x_i$ of each
+  room, the control action $h_i$, and the placement of the heaters.
+  \begin{gather*}
+    A = \begin{bmatrix}
+      0.00 & 0.30 & 0.40 & 0.30 \\
+      0.30 & 0.00 & 0.50 & 0.00 \\
+      0.40 & 0.50 & 0.00 & 0.30 \\
+      0.30 & 0.00 & 0.30 & 0.00
+    \end{bmatrix}, \quad
+    b = \begin{bmatrix} 0.30 \\ 0.20 \\ 0.50 \\ 0.40 \end{bmatrix},
+    \quad
+    c = \begin{bmatrix} 9.00 \\ 7.00 \\ 11.00 \\ 7.00 \end{bmatrix}
+    \\
+    u = 6, \quad
+    x_0 = \begin{bmatrix} 16.5 & 16.5 & 16.5 & 16.5 \end{bmatrix}^T
+    \\
+    \off = \begin{bmatrix} 20 & 20 & 20 & 20 \end{bmatrix}^T, \quad
+    on = \begin{bmatrix} 19 & 19 & 19 & 19 \end{bmatrix}^T
+    \\
+    get = \begin{bmatrix} 17 & 16 & 16 & 17 \end{bmatrix}^T, \quad
+    \dif = \begin{bmatrix} 1 & 1 & 1 & 1 \end{bmatrix}^T
+    \\
+    \text{Initially, the two heaters are in room $2$ and room $3$.}
+  \end{gather*}
+  We would like to keep the temperature of each room between $15$ and $20$
+  degree.  In your simulation, was this requirement satisfied?
+\item Change the parameters of the controller: $on_i$, $get_i$,
+  $\dif_i$ while $\off_i$ remain unchanged.  Simulate your system and
+  discuss the effects of these changes.  Is the temperature
+  requirement satisfied in each case?
+\end{enumerate}
+
+\end{document}
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

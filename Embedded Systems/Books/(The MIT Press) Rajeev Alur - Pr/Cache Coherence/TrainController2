@@ -1,0 +1,77 @@
+mtype = {Red, Green, RedState, GreenState, Idle, Waiting, Bridge}
+
+chan request = [1] of {bit}
+chan signal = [1] of {mtype}
+
+mtype ControllerState = RedState;
+mtype TrainState = Idle;
+
+proctype Controller() {
+	
+	do
+	::(ControllerState == RedState) ->
+		if 
+		::request?1-> 
+			ControllerState = GreenState;
+			signal ! Green; 
+		
+		fi
+		
+	::(ControllerState == GreenState) ->
+		if
+		::request?0-> 
+			signal ! Red;
+			ControllerState = RedState;
+		
+		fi
+	od
+}
+
+  //Correct one
+proctype Train() {
+	mtype recvd;
+	
+	do
+	::(TrainState == Idle) ->
+		if
+		::skip-> request ! 1;
+				 TrainState = Waiting;
+		::skip-> TrainState = Idle;
+		fi
+		
+	::(TrainState == Waiting) ->
+		signal ? recvd;
+		if
+		::(recvd == Green)-> TrainState = Bridge;
+		:: else -> skip;
+		fi
+		
+	::(TrainState == Bridge) ->
+		if
+		::skip-> TrainState = Idle; request!0; 
+		::skip-> TrainState = Bridge;
+		fi
+		
+	od
+}
+
+
+
+
+
+
+active proctype monitor() {
+	((ControllerState == RedState) && (TrainState == Bridge)) -> assert(!((ControllerState == RedState) && (TrainState == Bridge)));
+}
+
+
+
+
+
+init {
+	run Controller();
+	run Train();
+}
+		
+	
+

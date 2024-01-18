@@ -1,0 +1,159 @@
+//Constants
+#define NumAddresses 	1  // Number of addresses to be modeled, not used in this code, for extension purposes
+#define NumValues	2 	//Number of values that the data at each address can take. We model a single bit of memory
+#define NumNodes	3//The number of nodes across which coherence is to be 
+		   	//maintained. Node '0' is the directory.
+/*
+Set the buffer size for each channel
+	For every line in memory, there can be at most
+	one request message in the buffer for each node,
+	and one ack message for each node in the worst case
+	i.e. the request channel for the directory can
+	have size 2 * (NumNodes) * NumAddresses at most
+*/
+//#define BufferSize 2 * (NumNodes * NumAddresses)
+#define BufferSize 6
+	
+	
+
+//Variable definitions
+//memory lines states for directory / cache line states for cache controllers / Message Types
+mtype = { I , IV , V , VALID, INVALID, WAIT_RW,WAIT_WB , MSG_REQUEST, MSG_INVALIDATE, MSG_ACK,		MSG_WB };
+
+//complete directory entry per memory line
+typedef LineStateDirEntry{
+	mtype LineState;   //{ I , IV , V };
+	//The entry for who's waiting on the line(the cache waiting for invalidation process of owner
+	byte PendingID;
+	//The owner of the line(who has read/write permission for this address)
+	byte LineOwnerID;
+};
+
+//Each line in memory has a LineStateDirEntry, since we have only a single bit memory, it is a scalar here
+LineStateDirEntry DirectoryState	;
+/*The definitions of types for the line state in each node
+	Can be: 
+	--   	VALID: Line is valid (only one node can have this state for a line)
+	--	INVALID: Line is invalid
+	--	WAIT_RDWR: Waiting for directory to reply with valid data
+-- 	WAIT_WB: Sent a writeback request to directory, waiting for ACK
+*/
+
+
+/* The message types
+	 There're the following messages types possible:
+	--	REQUEST: Request for permission on an address
+	--	ACK: Acknowledge receipt of some message to directory.
+	--	     In this protocol it's only the invalidates that are acked
+	--	INVALIDATE: Request from a directory to a node to
+	-- 	            invalidate a line
+	--	WB: Request for a writeback (evicted from cache)
+	*/
+
+
+typedef Message{
+	mtype MType;
+	//The source of the message
+	byte Source; 
+	byte Address;
+	bit Value; // we assume each memory line consists of a single bit
+};
+
+//channel definitions
+//the request channel to the directory
+chan requestChannel = [BufferSize] of {Message};
+
+//The response channel to each node from the directory
+chan replyChannel[NumNodes] = [BufferSize] of {Message};
+
+//connecting core to the cache controller
+chan coreChannel[NumNodes] = [1] of {mtype};
+
+//Memory associated with Directory
+bit DirMemory=0;
+
+//an array to keep requests which should be processed later
+Message stall[BufferSize];
+//how to manage this array?
+
+//keeping track of how many cache controllers have permission V on a block, it should be less than or equal to one at any time
+byte numV=0;
+
+//process definitions
+
+//non-deterministically generates load-store or write-back request to cache controller
+
+proctype core(chan out){
+	do
+		::skip -> out!MSG_REQUEST;
+		::skip -> out!MSG_WB;
+	od
+}
+
+//cache controller description, fill it based on the table 1
+//get the load/store and write-back messages from core through channel inp
+//send requests and acks to directory through channel req
+//get the responds through reply from directory
+//for cache controller, you can ignore the stall load/write and stall write-back part in table 1 and skip the command 
+//i.e. when you are in IV mode and get a write-back or load-store, you have to delay this until you can process it, 
+//but for this project you can ignore the incoming load/store and write-back  when current state is WAIT_RD or WAIT_WB
+
+proctype cacheController(chan inp;chan req,reply; byte nodeID){
+	//state of each cache line
+	mtype nodeState = INVALID; // can be {VALID, INVALID, WAIT_RW,WAIT_WB}
+	//value of each cache line
+	bit cache=0;
+	
+	//you can use Message type
+	Message msg;
+	do
+		/***************************************
+			FILL HERE
+		***************************************/
+	od
+}
+
+//The directory process, Fill using Table 2. 
+//Sometimes you need to process some incoming requests later, you can use stall array for keeping them.
+proctype directory (){
+
+	
+	do
+		/***************************************
+			FILL HERE
+		***************************************/
+	od
+}
+
+//init
+init{
+byte k=0;
+atomic{	
+	
+	//Make the directory the owner of every block
+	DirectoryState.LineState = I;
+	DirectoryState.PendingID=0;
+	DirectoryState.LineOwnerID = 0;
+	do
+		::k<NumNodes ->
+			run core(coreChannel[k]);
+			run cacheController(coreChannel[k],requestChannel,replyChannel[k],k);
+			k++;
+		::else -> break;
+	od;
+	run directory();	
+}
+}
+
+
+//invariants
+//SWMR
+active proctype monitorSWMR(){
+	atomic{
+		numV>1 -> assert(numV<=1);
+	}
+}
+
+
+
+
